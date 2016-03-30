@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="../src/radar-chart.css">
+<head>
+  <style>
+    body {
+      padding: 20px;
+    }
+    svg:not(:root) {
+        overflow: visible;
+    }
+    .radar-chart .level {
+      stroke:#4fa9f4;
+    }
+    .radar-chart .axis line {
+      stroke:#4fa9f4;
+    }
+    .radar-chart .area {
+      fill-opacity: 0.7;
+    }
+    .radar-chart.focus .area {
+      fill-opacity: 0.3;
+    }
+    .radar-chart.focus .area.focused {
+      fill-opacity: 0.9;
+    }
+    .radar-chart .tooltip text {
+     color: #fff;
+    }
+  </style>
+
+  <script type="text/javascript" src="//d3js.org/d3.v3.js"></script>
+  <script type="text/javascript" src="../src/radar-chart.js"></script>
+
+  <script type="text/javascript">
+    RadarChart.defaultConfig.color = function() {};
+    RadarChart.defaultConfig.radius = 3;
+  </script>
+
+  <script type="text/javascript">
+    var data = [
+      {
+        className: 'germany', // optional can be used for styling
+        axes: [
+          {axis: "年龄", value: 13}, 
+          {axis: "睡眠", value: 6}, 
+          {axis: "手术强度", value: 5},  
+          {axis: "营养摄取", value: 9},  
+          {axis: "运动", value: 2},
+          {axis: "肥胖度", value: 2}
+        ]
+      }
+    ];
+   
+  </script>
+</head>
+<body>
+  <h1>Radar Chart</h1>
+  <p>A reusable radar chart implementation in D3.js</p>
+
+  <h2>Reusable D3 API</h2>
+  <input type="radio" name="health" value="good" /> 好<br />  <input type="radio" name="health" value="good" /> 好<br />  <input type="radio" name="health" value="good" /> 好<br />
+  <script type="text/javascript">
+  
+  </script>
+
+
+  <h2>Simple single chart drawing</h2>
+  <h3>No lines, only ticks</h3>
+  <div class="chart-container"></div>
+  <script type="text/javascript">
+    //RadarChart.defaultConfig.levelTick = true;
+    RadarChart.draw(".chart-container", data);
+  </script>
+
+</body>
+</html>
